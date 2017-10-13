@@ -1,4 +1,4 @@
-let socket = io.connect('http://localhost:3000');
+let socket = io.connect(window.location.hostname);
 
 socket.on('list', function(data) {
 	getNumberOnline(data)
