@@ -1,4 +1,4 @@
-let socket = io.connect(window.location.hostname);
+let socket = io.connect('https://pong-online-by-rgladys.herokuapp.com/');
 
 socket.on('list', function(data) {
 	getNumberOnline(data)

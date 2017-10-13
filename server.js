@@ -18,10 +18,6 @@ app.get('/', function(req, res) {
 
 //Socket setup
 var io = socket(server);
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-}); 
 
 //When new user connects
 function newUser(socket) {
