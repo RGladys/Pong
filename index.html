@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	<title>Pong</title>
+</head>
+<body>
+	<main>
+		<h1>PONG</h1>
+		<h3><span id="online"></span> online now.</h3>
+		<h2 class="menu-button" id="play-online">Play Online</h2>
+		<h2 class="menu-button" id="play-offline">Play Offline</h2>
+	</main>
+	<div id="container-offline">
+		<canvas id="canvas-offline"></canvas>
+	</div>
+	<div id="container-online">
+		<canvas id="canvas-online"></canvas>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/game-offline.js"></script>
+<script type="text/javascript" src="js/game-online.js"></script>
+<script type="text/javascript" src="js/websockets.js"></script>
+</html>

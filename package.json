@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "pong",
+  "version": "0.0.1",
+  "description": "Pong online game made with socket.io",
+  "main": "server.js",
+  "keywords": [
+    "pong",
+    "game"
+  ],
+  "author": "Radoslaw Gladys",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.5",
+    "socket.io": "^2.0.3"
+  }
+}
