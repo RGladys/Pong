@@ -56,11 +56,11 @@ let enemy = {
 	move: function(){
 		if (game) {
 			if (ball.moving == false) {
-			if (ball.y > this.y + enemy.height/2) this.y = this.y + this.speed*2.5;
-			if (ball.y < this.y + enemy.height/2) this.y = this.y - this.speed*2.5;
+			if (ball.y > this.y + enemy.height/2) this.y = this.y + this.speed*3;
+			if (ball.y < this.y + enemy.height/2) this.y = this.y - this.speed*3;
 				} else {
-					if (ball.y > this.y + this.height/2 && ball.x>canvas.width/6) this.y = this.y + this.speed*2.2;
-					if (ball.y < this.y + this.height/2 && ball.x>canvas.width/6) this.y = this.y - this.speed*2.2;
+					if (ball.y > this.y + this.height/2 && ball.x>canvas.width/6) this.y = this.y + this.speed*2.5;
+					if (ball.y < this.y + this.height/2 && ball.x>canvas.width/6) this.y = this.y - this.speed*2.5;
 					if (ball.y > this.y + this.height/2 && ball.x<=canvas.width/6) this.y = this.y + this.speed*1.4;
 					if (ball.y < this.y + this.height/2 && ball.x<=canvas.width/6) this.y = this.y - this.speed*1.4;
 					if (this.y > canvas.height - offset - this.height) this.y = canvas.height - offset - this.height;
