@@ -59,10 +59,10 @@ let enemy = {
 			if (ball.y > this.y + enemy.height/2) this.y = this.y + this.speed*2.5;
 			if (ball.y < this.y + enemy.height/2) this.y = this.y - this.speed*2.5;
 				} else {
-					if (ball.y > this.y + this.height/2 && ball.x<canvas.width/4.1) this.y = this.y + this.speed*1.2;
-					if (ball.y < this.y + this.height/2 && ball.x<canvas.width/4.1) this.y = this.y - this.speed*1.2;
-					if (ball.y > this.y + this.height/2 && ball.x>canvas.width/7) this.y = this.y + this.speed*1.7;
-					if (ball.y < this.y + this.height/2 && ball.x>canvas.width/7) this.y = this.y - this.speed*1.7;
+					if (ball.y > this.y + this.height/2 && ball.x>canvas.width/6) this.y = this.y + this.speed*2.2;
+					if (ball.y < this.y + this.height/2 && ball.x>canvas.width/6) this.y = this.y - this.speed*2.2;
+					if (ball.y > this.y + this.height/2 && ball.x<=canvas.width/6) this.y = this.y + this.speed*1.4;
+					if (ball.y < this.y + this.height/2 && ball.x<=canvas.width/6) this.y = this.y - this.speed*1.4;
 					if (this.y > canvas.height - offset - this.height) this.y = canvas.height - offset - this.height;
 					if (this.y < 0) this.y = 0;
 				}
@@ -95,41 +95,41 @@ let ball = {
 		//Enemy move
 		if (this.x > canvas.width - enemy.width - 8 && this.y > enemy.y - ball.radius && this.y < enemy.y + ball.radius + enemy.height) {
 			this.direction = 'left';
-			if (this.y > enemy.y - ball.radius) this.speedY = -14;
-			if (this.y > enemy.y + enemy.height/14) this.speedY = -12;
-			if (this.y > enemy.y + (enemy.height/14)*2) this.speedY = -10;
-			if (this.y > enemy.y + (enemy.height/14)*3) this.speedY = -8;
-			if (this.y > enemy.y + (enemy.height/14)*4) this.speedY = -6;
-			if (this.y > enemy.y + (enemy.height/14)*5) this.speedY = -4;
-			if (this.y > enemy.y + (enemy.height/14)*6) this.speedY = -2;
+			if (this.y > enemy.y - ball.radius) this.speedY = -16;
+			if (this.y > enemy.y + enemy.height/14) this.speedY = -14;
+			if (this.y > enemy.y + (enemy.height/14)*2) this.speedY = -12;
+			if (this.y > enemy.y + (enemy.height/14)*3) this.speedY = -10;
+			if (this.y > enemy.y + (enemy.height/14)*4) this.speedY = -8;
+			if (this.y > enemy.y + (enemy.height/14)*5) this.speedY = -6;
+			if (this.y > enemy.y + (enemy.height/14)*6) this.speedY = -4;
 			if (this.y > enemy.y + (enemy.height/14)*7) this.speedY = 0;
-			if (this.y > enemy.y + (enemy.height/14)*8) this.speedY = 2;
-			if (this.y > enemy.y + (enemy.height/14)*9) this.speedY = 4;
-			if (this.y > enemy.y + (enemy.height/14)*10) this.speedY = 6;
-			if (this.y > enemy.y + (enemy.height/14)*11) this.speedY = 8;
-			if (this.y > enemy.y + (enemy.height/14)*12) this.speedY = 10;
-			if (this.y > enemy.y + (enemy.height/14)*13) this.speedY = 12;
-			if (this.y > enemy.y + enemy.height) this.speedY = 14;
+			if (this.y > enemy.y + (enemy.height/14)*8) this.speedY = 4;
+			if (this.y > enemy.y + (enemy.height/14)*9) this.speedY = 6;
+			if (this.y > enemy.y + (enemy.height/14)*10) this.speedY = 8;
+			if (this.y > enemy.y + (enemy.height/14)*11) this.speedY = 10;
+			if (this.y > enemy.y + (enemy.height/14)*12) this.speedY = 12;
+			if (this.y > enemy.y + (enemy.height/14)*13) this.speedY = 14;
+			if (this.y > enemy.y + enemy.height) this.speedY = 16;
 		};
 
 		//Player move
 		if (this.x < player.width + 8 && this.y > player.y - ball.radius && this.y < player.y + ball.radius + player.height) {
 			this.direction = 'right';
-			if (this.y > player.y - ball.radius) this.speedY = -7;
-			if (this.y > player.y + player.height/14) this.speedY = -6;
-			if (this.y > player.y + (player.height/14)*2) this.speedY = -5;
-			if (this.y > player.y + (player.height/14)*3) this.speedY = -4;
-			if (this.y > player.y + (player.height/14)*4) this.speedY = -3;
-			if (this.y > player.y + (player.height/14)*5) this.speedY = -2;
-			if (this.y > player.y + (player.height/14)*6) this.speedY = -1;
+			if (this.y > player.y - ball.radius) this.speedY = -9;
+			if (this.y > player.y + player.height/14) this.speedY = -8;
+			if (this.y > player.y + (player.height/14)*2) this.speedY = -7;
+			if (this.y > player.y + (player.height/14)*3) this.speedY = -6;
+			if (this.y > player.y + (player.height/14)*4) this.speedY = -5;
+			if (this.y > player.y + (player.height/14)*5) this.speedY = -4;
+			if (this.y > player.y + (player.height/14)*6) this.speedY = -3;
 			if (this.y > player.y + (player.height/14)*7) this.speedY = 0;
-			if (this.y > player.y + (player.height/14)*8) this.speedY = 1;
-			if (this.y > player.y + (player.height/14)*9) this.speedY = 2;
-			if (this.y > player.y + (player.height/14)*10) this.speedY = 3;
-			if (this.y > player.y + (player.height/14)*11) this.speedY = 4;
-			if (this.y > player.y + (player.height/14)*12) this.speedY = 5;
-			if (this.y > player.y + (player.height/14)*13) this.speedY = 6;
-			if (this.y > player.y + player.height) this.speedY = 7;
+			if (this.y > player.y + (player.height/14)*8) this.speedY = 3;
+			if (this.y > player.y + (player.height/14)*9) this.speedY = 4;
+			if (this.y > player.y + (player.height/14)*10) this.speedY = 5;
+			if (this.y > player.y + (player.height/14)*11) this.speedY = 6;
+			if (this.y > player.y + (player.height/14)*12) this.speedY = 7;
+			if (this.y > player.y + (player.height/14)*13) this.speedY = 8;
+			if (this.y > player.y + player.height) this.speedY = 9;
 		};
 		//Win and loss
 		if (this.x > canvas.width || this.x < 0) {
