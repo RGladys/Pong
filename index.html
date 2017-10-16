@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
@@ -9,20 +10,42 @@
 <body>
 	<main>
 		<h1>PONG</h1>
-		<h3><span id="online"></span> online now.</h3>
-		<h2 class="menu-button" id="play-online">Play Online</h2>
-		<h2 class="menu-button" id="play-offline">Play Offline</h2>
+		<h2 class="menu-button" id="play">Play</h2>
+		<h2 class="menu-button" id="settings">Settings</h2>
 	</main>
-	<div id="container-offline">
+	<div id="container-game">
 		<canvas id="canvas-offline"></canvas>
 	</div>
-	<div id="container-online">
-		<canvas id="canvas-online"></canvas>
+
+	<div class="container" id="container-settings">
+		<h1>Settings</h1>
+		<h2 id="difficulty">Difficulty</h2>
+		<h2 id="color">Color</h2>
+		<h2 id="back-settings">Back</h2>
+	</div>
+
+	<div class="container" id="color-settings">
+		<h1>Color</h1>
+		<div id="color-buttons">
+			<h2 id="white">White</h2>
+			<h2 id="red">Red</h2>
+			<h2 id="green">Green</h2>
+			<h2 id="blue">Blue</h2>
+		</div>
+		<h2 id="back-color">Back</h2>
+	</div>
+
+	<div class="container" id="difficulty-settings">
+		<h1>Difficulty</h1>
+		<div id="difficulty-buttons">
+			<h2 id="easy">Easy</h2>
+			<h2 class="picked" id="medium">Medium</h2>
+			<h2 id="hard">Hard</h2>
+		</div>
+		<h2 id="back-difficulty">Back</h2>
 	</div>
 	
 </body>
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/game-offline.js"></script>
-<script type="text/javascript" src="js/game-online.js"></script>
-<script type="text/javascript" src="js/websockets.js"></script>
+<script type="text/javascript" src="js/game.js"></script>
 </html>

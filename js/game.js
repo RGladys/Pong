@@ -1,4 +1,4 @@
-(function(){
+let stateMap = (function(){
 let canvas = document.getElementById("canvas-offline");
 getSize();
 let ctx = canvas.getContext("2d");
@@ -9,6 +9,7 @@ let game = true;
 let msg;
 let msg2 = "";
 let messageStatus = true;
+let body = document.getElementsByTagName("body")[0];
 
 //Get the size of canvas element
 function getSize() {
@@ -45,6 +46,7 @@ let enemy = {
 	width: (canvas.width/100)*2.77,
 	height: (canvas.height/100)*17,
 	score: 0,
+	speed: 3,
 	draw: function(){
 		ctx.save();
 		ctx.rect(this.x, this.y, this.width, this.height);
@@ -54,15 +56,17 @@ let enemy = {
 	move: function(){
 		if (game) {
 			if (ball.moving == false) {
-			if (ball.y > this.y + enemy.height/2) this.y = this.y + 3;
-			if (ball.y < this.y + enemy.height/2) this.y = this.y - 3;
-				};
-			if (ball.y > this.y + this.height/2 && ball.x<canvas.width/4.1) this.y = this.y + 2;
-			if (ball.y < this.y + this.height/2 && ball.x<canvas.width/4.1) this.y = this.y - 2;
-			if (ball.y > this.y + this.height/2 && ball.x>canvas.width/7) this.y = this.y + 5;
-			if (ball.y < this.y + this.height/2 && ball.x>canvas.width/7) this.y = this.y - 5;
-			if (this.y > canvas.height - offset - this.height) this.y = canvas.height - offset - this.height;
-			if (this.y < 0) this.y = 0;}
+			if (ball.y > this.y + enemy.height/2) this.y = this.y + this.speed*2.5;
+			if (ball.y < this.y + enemy.height/2) this.y = this.y - this.speed*2.5;
+				} else {
+					if (ball.y > this.y + this.height/2 && ball.x<canvas.width/4.1) this.y = this.y + this.speed*1.2;
+					if (ball.y < this.y + this.height/2 && ball.x<canvas.width/4.1) this.y = this.y - this.speed*1.2;
+					if (ball.y > this.y + this.height/2 && ball.x>canvas.width/7) this.y = this.y + this.speed*1.7;
+					if (ball.y < this.y + this.height/2 && ball.x>canvas.width/7) this.y = this.y - this.speed*1.7;
+					if (this.y > canvas.height - offset - this.height) this.y = canvas.height - offset - this.height;
+					if (this.y < 0) this.y = 0;
+				}
+		}
 	}
 };
 
@@ -172,16 +176,19 @@ function score() {
 //Exit game
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode == 27) {
-		main.style.display = "block";
-		containerOffline.style.display = "none";
-		player.score = 0;
-		enemy.score = 0;
-		msg2 = "";
-		ball.moving = false;
-		ball.direction = 'right';
-		ball.x = (canvas.width/100)*2.77 + (canvas.width/50);
-		offlineGameStatus = false;
-		messageStatus = true;
+		if (containerGame.style.display == "block") {
+			main.style.display = "block";
+			containerGame.style.display = "none";
+			player.score = 0;
+			enemy.score = 0;
+			msg2 = "";
+			ball.moving = false;
+			ball.direction = 'right';
+			ball.x = (canvas.width/100)*2.77 + (canvas.width/50);
+			offlineGameStatus = false;
+			messageStatus = true;
+			game = true
+		}
 	}
 })
 
@@ -225,6 +232,49 @@ function animate() {
 	score();
 };
 animate();
+
+return {
+	setDiff: function(diff) {
+		switch (diff) {
+			case 'easy':
+				ball.speed = canvas.width/57;
+				enemy.speed = 2.5;
+				break;
+			case 'medium':
+				ball.speed = canvas.width/50;
+				enemy.speed = 3.5;
+				break;
+			case 'hard': 
+				ball.speed = canvas.width/40;
+				enemy.speed = 4;
+				break;
+		}
+	},
+	setColor: function(color) {
+		switch (color) {
+			case 'white':
+				ctx.fillStyle = 'white';
+				ctx.strokeStyle = 'white';
+				body.style.color = 'white';
+				break;
+			case 'blue':
+				ctx.fillStyle = 'lightblue';
+				ctx.strokeStyle = 'lightblue';
+				body.style.color = 'lightblue';
+				break;
+			case 'red':
+				ctx.fillStyle = '#ff4c4c';
+				ctx.strokeStyle = '#ff4c4c';
+				body.style.color = '#ff4c4c';
+				break;
+			case 'green':
+				ctx.fillStyle = '#44ffa1';
+				ctx.strokeStyle = '#44ffa1';
+				body.style.color = '#44ffa1';
+				break;
+		}
+	}
+}
 
 })()
 
